@@ -21,8 +21,8 @@
                         <div class="row">
                             @foreach($user->books as $book)
                                 <div class="col-md-4" style="margin-bottom: 10px; margin-top: 10px">
-                                    <div><a href="/books/{{ $book->id }}">{{ $book->name }}</a></div>
-                                    {{-- <div><img src="" style="width: 20px"></div> --}}
+                                    <div><span>{{ ucwords(strtolower($book->name)) }}</span></div>
+                                    <div><a href="/books/{{ $book->id }}"><img src="{{ $book->images[0]->url }}" style="width: 150px"></a></div>
                                     <div>RM {{ $book->price }}</div>
                                 </div>
                             @endforeach
