@@ -32,11 +32,23 @@ class BookController extends Controller
         ]);
 
         $user = Auth::user();
+        $filename = str_random(4);
 
         $book = new Book;
         $book->user_id = $user->id;
         $book->name = $request->name;
         $book->price = $request->price;
+
+        $image = new BookImage;
+		$img = Image::make($request->file('image')->getRealPath());
+        $img = $img->encode('jpg', 50);
+        Storage::disk('public')->put($filename.'_xs.jpg', $img->getEncoded());
+        $url = 'image/'.$filename.'_xs.jpg';
+
+        $image->book_id = $book->id;
+        $image->url = $url;
+
+        $image->save();
         $book->save();
 
         return redirect('/books')->with('successMessage', 'Book has been saved!');
