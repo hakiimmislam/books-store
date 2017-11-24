@@ -38,6 +38,7 @@ class BookController extends Controller
         $book->user_id = $user->id;
         $book->name = $request->name;
         $book->price = $request->price;
+        $book->save();
 
         $image = new BookImage;
 		$img = Image::make($request->file('image')->getRealPath());
@@ -47,9 +48,7 @@ class BookController extends Controller
 
         $image->book_id = $book->id;
         $image->url = $url;
-
         $image->save();
-        $book->save();
 
         return redirect('/books')->with('successMessage', 'Book has been saved!');
     }
