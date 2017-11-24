@@ -17,11 +17,19 @@
             			</div>
             		</div>
             		<hr style="margin-top: 10px; margin-right: -15px; margin-left: -15px; margin-bottom: 15px">
-                    @foreach($user->books as $book)
-                        <div><a href={{ url('/books/'.$book->id) }}>{{ $book->name }}</a></div>
-                        <div><img src="" style="width: 20px"></div>
-                        <div>RM {{ $book->price }}</div>
-                    @endforeach
+                    @if($user->books->count() > 0)
+                        <div class="row">
+                            @foreach($user->books as $book)
+                                <div class="col-md-4" style="margin-bottom: 10px; margin-top: 10px">
+                                    <div><a href="/books/{{ $book->id }}">{{ $book->name }}</a></div>
+                                    {{-- <div><img src="" style="width: 20px"></div> --}}
+                                    <div>RM {{ $book->price }}</div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div align="center"><span style="font-size: 20px; opacity: 0.4">There no are books in your store.</span></div>
+                    @endif
             	</div>
             </div>
         </div>

@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Add Book</div>
                 @include('layouts.alerts')
-                <form method="POST" action="/books/create">
+                <form method="POST" action="/books/create" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-4" style="margin-left: 20px; margin-top: 20px">
@@ -26,6 +26,15 @@
                                 @if ($errors->has('name'))
                                     <div class="help-block">
                                         <strong>{{ $errors->first('price') }}</strong>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+                                <label for="image">Image</label>
+                                <input type="file" name="image" required>
+                                @if ($errors->has('name'))
+                                    <div class="help-block">
+                                        <strong>{{ $errors->first('image') }}</strong>
                                     </div>
                                 @endif
                             </div>
