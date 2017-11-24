@@ -8,7 +8,7 @@
             <div class="panel panel-default">
             	<div class="panel-heading">
             		<div class="row">
-            			<div class="col-md-2">
+            			<div class="col-md-8">
             				<label style="font-size: 17px">{{ ucwords(strtolower($book->name)) }}</label>
             			</div>
             			{{-- <div class="pull-right" style="padding-right: 15px">
