@@ -11,9 +11,9 @@
             			<div class="col-md-2">
             				<label>Books</label>
             			</div>
-            			{{-- <div class="pull-right" style="padding-right: 15px">
+            			<div class="pull-right" style="padding-right: 15px">
             				<div class=" pull-right"><a href="/books/create" class="btn btn-primary btn-sm">Create</a></div>
-            			</div> --}}
+            			</div>
             		</div>
             		<hr style="margin-top: 10px; margin-right: -15px; margin-left: -15px; margin-bottom: 15px">
                     {{-- @foreach($user->books as $book)
