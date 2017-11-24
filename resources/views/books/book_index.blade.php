@@ -9,7 +9,7 @@
             	<div class="panel-heading">
             		<div class="row">
             			<div class="col-md-2">
-            				<label>Books</label>
+            				<label style="font-size: 17px">{{ ucwords(strtolower($book->name)) }}</label>
             			</div>
             			{{-- <div class="pull-right" style="padding-right: 15px">
             				<div class=" pull-right"><a href="/books/create" class="btn btn-primary btn-sm">Create</a></div>

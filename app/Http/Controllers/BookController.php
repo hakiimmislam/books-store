@@ -44,7 +44,7 @@ class BookController extends Controller
 		$img = Image::make($request->file('image')->getRealPath());
         $img = $img->encode('jpg', 50);
         Storage::disk('public')->put($filename.'_xs.jpg', $img->getEncoded());
-        $url = 'image/'.$filename.'_xs.jpg';
+        $url = 'image/book_'.$filename.'.jpg';
 
         $image->book_id = $book->id;
         $image->url = $url;
